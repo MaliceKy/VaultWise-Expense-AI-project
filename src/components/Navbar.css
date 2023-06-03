@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
+.navbar{
+    background-color: #f5f5f5;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.navbrand{
+    margin-left: 5%;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Raleway', sans-serif;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 5%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.links a {
+    position: relative; /* this allows the pseudo-element to be positioned relative to the link */
+    text-decoration: none;
+    margin-left: 30px;
+    padding-bottom: 2px;
+    color: black;
+    transition: color 0.3s ease-in-out;
+}
+
+.sign-in{
+    align-items: center;
+    margin-left: auto;
+    padding-right: 5%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.sign-in a{
+    text-decoration: none;
+    display: inline-block;
+    transition: padding .3s ease-in-out;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.links a:hover, .sign-in a:hover{
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 0px 0px #9837ed54);
+    padding-bottom: 5px;
+    transition: padding .3s ease-in-out;
+}
+
+.links a::before, .sign-in a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    transform: scaleX(0);
+    transition: transform .5s ease-in-out;
+    z-index: 1;
+}
+
+
+.links a:hover::before, .sign-in a:hover::before {
+    transform: scaleX(.8);
+}

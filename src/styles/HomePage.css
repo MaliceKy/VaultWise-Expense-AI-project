@@ -1,7 +1,64 @@
 /* HomePage.css */
-.Title{
-    text-align: center;
-    font-size: 2rem;
-    color: #f0a029;
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
+} 
+
+.home-container {
+    position: relative;
+    min-height: 91vh;
+    background: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
-  
+
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.content-container{
+    padding-top: 10%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.Title {
+    font-size: 2rem;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Raleway', sans-serif;
+}
+
+.Desc{
+    margin-bottom: 3%;
+}
+
+.Sign-in {
+    padding: 10px 20px; /* increased padding for better spacing */
+    border-radius: 25px; /* larger radius for more rounded corners */
+    color: #fff;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; /* smooth transition effect */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* shadow for depth */
+    border: none; /* remove border if any */
+    display: inline-block; /* allows the button to adjust its size based on its content */
+    cursor: pointer; /* changes the mouse cursor when hovering over the button */
+}
+
+.Sign-in:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* deeper shadow on hover */
+    transform: translateY(-2px); /* slightly raises the button on hover */
+}
+
+.Sign-in:active {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* less shadow when button is active/clicked */
+    transform: translateY(0px); /* button returns to original position when active/clicked */
+}
+
