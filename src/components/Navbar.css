@@ -3,77 +3,108 @@
     src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
 }
 
+/* Navbar */
 .navbar{
     background-color: #f5f5f5;
     padding-top: 5px;
     display: flex;
-    align-items: center;
+    position: relative;
 }
 
+
+/* VaultWise text left side of navbar */
 .navbrand{
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold; /* or use a number like 600 for semi-bold */
     margin-left: 5%;
-    background: linear-gradient(to right, #7a37ed, #b74ce6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Raleway', sans-serif;
 }
 
-.links{
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    padding-right: 5%;
-    font-family: 'Raleway', sans-serif;
-}
-
-.links a {
-    position: relative; /* this allows the pseudo-element to be positioned relative to the link */
-    text-decoration: none;
-    margin-left: 30px;
-    padding-bottom: 2px;
-    color: black;
-    transition: color 0.3s ease-in-out;
-}
-
-.sign-in{
-    align-items: center;
-    margin-left: auto;
-    padding-right: 5%;
-    font-family: 'Raleway', sans-serif;
-}
-
-.sign-in a{
-    text-decoration: none;
-    display: inline-block;
-    transition: padding .3s ease-in-out;
-    background: linear-gradient(to right, #7a37ed, #b74ce6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.links a:hover, .sign-in a:hover{
-    background: linear-gradient(to right, #7a37ed, #b74ce6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0px 0px 0px #9837ed54);
-    padding-bottom: 5px;
-    transition: padding .3s ease-in-out;
-}
-
-.links a::before, .sign-in a::before {
-    content: '';
-    position: absolute;
+.links {
+    font-family: 'Raleway';
+    padding-top: 5px;
     width: 100%;
-    height: 1.5px;
-    bottom: 0;
-    left: 0;
+    justify-content: right;
+    
+}
+
+#nav-sign-in {
+    margin-right: 5%;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
     background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#nav-home, #nav-about, #nav-getting-started, #nav-contact-us{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#nav-sign-in::before, #nav-home::before, #nav-about::before, #nav-getting-started::before, #nav-contact-us::before{
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    bottom: 5px;
+    right: 10%;
+    background-image: linear-gradient(to right, #7a37ed, #b74ce6);
     transform: scaleX(0);
-    transition: transform .5s ease-in-out;
-    z-index: 1;
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+}
+
+#nav-sign-in:hover::before, #nav-home:hover::before, #nav-about:hover::before, #nav-getting-started:hover::before, #nav-contact-us:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 
-.links a:hover::before, .sign-in a:hover::before {
-    transform: scaleX(.8);
+/* Hamburger */
+.navbar-toggle {
+    position: absolute;
+    top: 20px; /* adjust as per your requirements */
+    right: 5%; /* adjust as per your requirements */
+    width: 23px;
+    height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2; /* add a z-index to ensure the hamburger stays on top */
 }
+
+  
+  .navbar-toggle div {
+    width: 100%;
+    height: 2.5px;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-text-fill-color: transparent;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-toggle.open div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggle.open div:nth-child(1) {
+    transform: translateY(6.25px) rotate(45deg);
+  }
+  
+  .navbar-toggle.open div:nth-child(3) {
+    transform: translateY(-6.25px) rotate(-45deg);
+  }
+
+@media (min-width: 768px) {
+    .navbar-toggle {
+        display: none;
+    }
+}
+
+  

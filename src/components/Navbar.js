@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
-function Navbar() {
+function MyNavbar() {
+    const [open, setOpen] = useState(false);
+
     return (
-        <nav className="navbar">
-            <h1 className="navbrand">VaultWise</h1>
-            <div className="links">
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/projects">Getting-Started</a>
-                <a href="/contact">Contact us</a>
-            </div>
+        <Navbar className="navbar" expand="md" expanded={open}>
+            <Navbar.Brand className="navbrand" href="#home">VaultWise</Navbar.Brand>
+            
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="links">
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-home" href="/">Home</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-about" href="/about">About</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-getting-started" href="/projects">Getting-Started</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-contact-us" href="/contact">Contact us</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-sign-in" href="/sign-in">Sign in</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
 
-            <div className="sign-in">
-            <a href="/sign-in">Sign in</a>
+            <div onClick={()=> setOpen(!open)} className={`navbar-toggle ${open ? 'open' : ''}`} aria-controls="responsive-navbar-nav" >
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+        </Navbar>
 
-        </nav>
+
     );
 }
 
-export default Navbar;
+export default MyNavbar;
