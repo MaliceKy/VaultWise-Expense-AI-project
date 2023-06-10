@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/Home-Homepage.css';
 import '../styles/About-Homepage.css'
 import '../styles/GettingStarted-Homepage.css'
+import '../styles/Contact-Homepage.css'
 
 function HomePage() {
   return (
@@ -71,7 +72,7 @@ function HomePage() {
         <div classname="GettingStarted-Content">
           <h2 className="GettingStarted-Title">Getting Started</h2>
           <p className="GettingStarted-Desc">Jumpstart your financial management with VaultWise in three easy steps:</p>
-          <div className="Steps">
+          <div className="Steps col-10 col-md-8 col-lg-7">
           <p><span className="StepNumber">1. </span><span className="Step-text">Download your bank statements from your banking website or application as a CSV file.</span></p>
           <p><span className="StepNumber">2. </span><span className="Step-text">Sign up to create your VaultWise account.</span></p>
           <p><span className="StepNumber">3. </span><span className="Step-text">Upload your CSV file and let our AI do the rest. Financial insights await!</span></p>
@@ -81,6 +82,29 @@ function HomePage() {
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#7a37ed" fill-opacity="1" d="M0,128L48,154.7C96,181,192,235,288,245.3C384,256,480,224,576,192C672,160,768,128,864,149.3C960,171,1056,245,1152,250.7C1248,256,1344,192,1392,160L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
 
+      <div className="Contact">
+        <div className="Contact-Content">
+          <h2 className="Contact-Title">Contact</h2>
+          <p className="Contact-Desc">Here at VaultWise, we value every question, comment, and suggestion from our clients as it helps us shape your financial future better.</p>
+          <p className="Contact-Desc">Our dedicated and friendly customer service team is ready to assist you with any inquiries you may have about our AI-powered financial management system. Whether it's about sorting your bank statements, understanding your expense pattern, or navigating through our platform, we're here to help.</p>
+
+          <div className="Media-card col-10 col-md-8 col-lg-5">
+            <p className="Contact-Desc-Bold">You can reach out to us via:</p>
+            <div className="Media-Content">
+              <p><span className="Contact-Media">Email: </span><span className="Email"> support@vaultwise.com </span></p>
+              <p><span className="Contact-Media">Phone: </span><span className="Phone-Number"> +1 (800) 123-4567 </span></p>
+
+              <p className="Contact-Desc-Bold">Office Hours:</p>
+              <p><span className="Contact-Media">Monday-Friday, </span><span className="times">9:00 am - 5:00 pm ET</span></p>
+
+              <p className="Contact-Desc-Bold">Headquarters:</p>
+              <p className="Address">1234 Finance Street,</p>
+              <p className="Address">Moneyville, ZT 56789, USA</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 }
