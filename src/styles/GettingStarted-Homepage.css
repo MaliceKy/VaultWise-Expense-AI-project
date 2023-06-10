@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
+} 
+
+.Getting-Started{
+    padding-left: 10vh;
+    padding-right: 10vh;
+    padding-bottom: 5vh;
+}
+
+.GettingStarted-Title{
+    font-family: 'Raleway';
+    align-items: center;
+    font-weight: 650;
+    text-align: center;
+    padding-bottom: 2vh;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.GettingStarted-Desc{
+    font-family: 'Raleway';
+    color: rgb(0, 0, 0);
+    padding-inline: 9vh;
+    text-align: center;
+    padding-bottom: 2vh;
+}
+
+.Steps{
+    text-align: center;
+    padding: 2vh;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.StepNumber {
+    font-size: 1.5rem;
+    font-weight: 550;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Raleway';
+    text-align: left;
+}
+
+.Step-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 2vh;
+    font-family: 'Raleway';
+  }
+  
+  
