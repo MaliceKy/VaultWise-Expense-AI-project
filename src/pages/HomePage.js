@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <div className="home-container">
 
-      <div className="Home">
+      <div className="Home" id="Home">
         <div className="Home-Content">
           <div className="Home-Info">
             <h1 className="Title">VaultWise</h1>
@@ -22,7 +22,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="About">
+      <div className="About" id="About">
         <div className="About-Content">
           <h2 className="About-Title">About</h2>
           <p className="About-Desc">VaultWise is a revolutionary AI-based platform that simplifies your banking experience. Our solution organizes your bank statements from a CSV file, presenting them in an easily digestible format to help you understand your finances better. By evaluating your spending patterns, identifying unnecessary expenses, and recommending ways to save, we make your money work smarter for you.</p>
@@ -68,7 +68,7 @@ function HomePage() {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#7a37ed" fill-opacity="1" d="M0,256L48,218.7C96,181,192,107,288,80C384,53,480,75,576,106.7C672,139,768,181,864,176C960,171,1056,117,1152,112C1248,107,1344,149,1392,170.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
 
 
-      <div className="Getting-Started">
+      <div className="Getting-Started" id="Getting-Started">
         <div classname="GettingStarted-Content">
           <h2 className="GettingStarted-Title">Getting Started</h2>
           <p className="GettingStarted-Desc">Jumpstart your financial management with VaultWise in three easy steps:</p>
@@ -82,7 +82,7 @@ function HomePage() {
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#7a37ed" fill-opacity="1" d="M0,128L48,154.7C96,181,192,235,288,245.3C384,256,480,224,576,192C672,160,768,128,864,149.3C960,171,1056,245,1152,250.7C1248,256,1344,192,1392,160L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
 
-      <div className="Contact">
+      <div className="Contact" id="Contact">
         <div className="Contact-Content">
           <h2 className="Contact-Title">Contact</h2>
           <p className="Contact-Desc">Here at VaultWise, we value every question, comment, and suggestion from our clients as it helps us shape your financial future better.</p>

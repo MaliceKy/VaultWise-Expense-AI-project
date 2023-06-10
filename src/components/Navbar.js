@@ -6,15 +6,15 @@ function MyNavbar() {
     const [open, setOpen] = useState(false);
 
     return (
-        <Navbar className="navbar" expand="md" expanded={open}>
+        <Navbar className="navbar" expand="md" fixed="top" expanded={open}>
             <Navbar.Brand className="navbrand" href="#home">VaultWise</Navbar.Brand>
             
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="links">
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-home" href="/">Home</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-about" href="/about">About</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-getting-started" href="/projects">Getting-Started</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-contact-us" href="/contact">Contact us</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-home" href="#Home">Home</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-about" href="#About">About</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-getting-started" href="#Getting-Started">Getting Started</Nav.Link>
+                    <Nav.Link onClick={()=> setOpen(false)} id="nav-contact-us" href="#Contact">Contact Us</Nav.Link>
                     <Nav.Link onClick={()=> setOpen(false)} id="nav-sign-in" href="/sign-in">Sign in</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
@@ -25,9 +25,8 @@ function MyNavbar() {
                 <div></div>
             </div>
         </Navbar>
-
-
     );
 }
+
 
 export default MyNavbar;
