@@ -1,0 +1,113 @@
+.SignInPage{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif; 
+    background-image: url('../assets/images/wave-haikei.svg');
+    font-family: 'Raleway';
+
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.signInPage-Card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+
+    padding-bottom: 40px;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.signInPageTitleBlock{
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 20%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    align-content: center;
+}
+
+.signInPage-Title{
+    font-family: 'Raleway';
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Email-Prompt{
+    color: #7a37ed;
+    font-family: 'Raleway';
+    text-align: center;
+    font-weight: 600;
+}
+
+.Pass-Prompt{
+    margin-top: 5%;
+    color: #7a37ed;
+    font-family: 'Raleway';
+    text-align: center;
+    font-weight: 600;
+}
+
+.SignInForm{
+    padding-top: 5%;
+    padding-inline: 10%;
+
+}
+
+.Custom-Sign-Button-Block{
+    justify-content: center;
+    display: flex;
+}
+
+.Custom-Sign-Button{
+    padding: 10px 20px; /* increased padding for better spacing */
+    border-radius: 25px; /* larger radius for more rounded corners */
+    color: #fff;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; /* smooth transition effect */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* shadow for depth */
+    border: none; /* remove border if any */
+    display: inline-block; /* allows the button to adjust its size based on its content */
+    cursor: pointer; /* changes the mouse cursor when hovering over the button */
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.Custom-Sign-Button:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* deeper shadow on hover */
+    transform: translateY(-2px); /* slightly raises the button on hover */
+}
+
+.Custom-Sign-Button:active {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* less shadow when button is active/clicked */
+    transform: translateY(0px); /* button returns to original position when active/clicked */
+}
+
+.error-message {
+    background-color: rgba(249, 45, 45, 0.695);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 10px;
+    padding-inline: 5%;
+    padding: 2%;
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
+  
