@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
 function MyNavbar() {
     const [open, setOpen] = useState(false);
+    const navigate = useNavigate(); // useNavigate hook
 
     return (
         <Navbar className="navbar" expand="md" fixed="top" expanded={open}>
-            <Navbar.Brand className="navbrand" href="#home">VaultWise</Navbar.Brand>
-            
+            <Link className="navbar-brand" to="/">VaultWise</Link>
+
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="links">
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-home" href="#Home">Home</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-about" href="#About">About</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-getting-started" href="#Getting-Started">Getting Started</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-contact-us" href="#Contact">Contact Us</Nav.Link>
-                    <Nav.Link onClick={()=> setOpen(false)} id="nav-sign-in" href="/sign-in">Sign in</Nav.Link>
+                    <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'Home'; }} id="nav-home">Home</Nav.Link>
+                    <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'About'; }} id="nav-about">About</Nav.Link>
+                    <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'Getting-Started'; }} id="nav-getting-started">Getting Started</Nav.Link>
+                    <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'Contact'; }} id="nav-contact-us">Contact Us</Nav.Link>
+                    <Nav.Link as={Link} to="/sign-in" onClick={()=> setOpen(false)} id="nav-sign-in">Sign in</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
 
-            <div onClick={()=> setOpen(!open)} className={`navbar-toggle ${open ? 'open' : ''}`} aria-controls="responsive-navbar-nav" >
+            <div onClick={()=> setOpen(!open)} className={`navbar-toggle ${open ? 'open' : ''}`} aria-controls="responsive-navbar-nav">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -28,5 +30,5 @@ function MyNavbar() {
     );
 }
 
-
 export default MyNavbar;
+

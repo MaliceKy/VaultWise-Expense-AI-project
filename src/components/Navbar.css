@@ -16,7 +16,7 @@
 
 
 /* VaultWise text left side of navbar */
-.navbrand{
+.navbar-brand{
     background: linear-gradient(to right, #7a37ed, #b74ce6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -25,7 +25,7 @@
     margin-left: 5%;
 }
 
-.navbrand:hover{
+.navbar-brand:hover{
     text-shadow: 0px 5px 15px #7a37ed65;
     transition: all 0.3s ease-in-out;
 }
