@@ -18,9 +18,16 @@ function MyNavbar() {
                         // Different navigation for sign-in page
                         <>
                             <Nav.Link onClick={() => { setOpen(false); navigate('/'); }} id="nav-home">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/register" onClick={()=> setOpen(false)} id="nav-sign-up">Sign up</Nav.Link>
+                            <Nav.Link as={Link} to="/Sign-Up" onClick={()=> setOpen(false)} id="nav-sign-up">Sign up</Nav.Link>
                         </>
+                    ) : location.pathname === "/Sign-Up" ? (
+                            // Different navigation for sign-in page
+                            <>
+                                <Nav.Link onClick={() => { setOpen(false); navigate('/'); }} id="nav-home">Home</Nav.Link>
+                                <Nav.Link as={Link} to="/Sign-In" onClick={()=> setOpen(false)} id="nav-sign-in">Sign in</Nav.Link>
+                            </>
                     ) : (
+                        
                         // Default navigation
                         <>
                             <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'Home'; }} id="nav-home">Home</Nav.Link>

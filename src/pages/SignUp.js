@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { auth } from './firebase.js';
-import { signInAnonymously, signInWithEmailAndPassword } from 'firebase/auth';
-import '../styles/SignIn.css'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import '../styles/SignUp.css'
 
-const SignIn = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -14,37 +14,27 @@ const SignIn = () => {
     console.log("Form submitted with email: ", email, "and password: ", password);
     
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       var user = userCredential.user;
-      console.log("User signed in: ", user);
-      setErrorMessage(""); // Clear any previous error messages on successful sign in
+      console.log("User signed up: ", user);
+      setErrorMessage(""); // Clear any previous error messages on successful sign up
     } catch (error) {
-      console.error("Error signing in: ", error);
-      setErrorMessage("Incorrect email or password. Please try again."); // Set error message on unsuccessful sign in
-    }
-  };
-
-  const handleGuestSignIn = async () => {
-    try {
-      const userCredential = await signInAnonymously(auth);
-      var user = userCredential.user;
-      console.log("User signed in as guest: ", user);
-    } catch (error) {
-      console.error("Error signing in as guest: ", error);
+      console.error("Error signing up: ", error);
+      setErrorMessage("Could not create account. Please try again."); // Set error message on unsuccessful sign up
     }
   };
 
   return (
-    <div className="SignInPage">
+    <div className="SignUpPage">
       <div className="container">
         <div className="row">
         <div className="col-11 col-sm-10 col-md-8 col-lg-6 mx-auto">
-            <div className="signInPage-Container">
-              <div className="signInPage-Card">
-                <div className="signInPageTitleBlock">
-                  <p className="signInPage-Title">Sign In</p>
+            <div className="signUpPage-Container">
+              <div className="signUpPage-Card">
+                <div className="signUpPageTitleBlock">
+                  <p className="signUpPage-Title">Sign Up</p>
                 </div>
-                <div className="SignInForm">
+                <div className="SignUpForm">
                   <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formEmail">
                       <Form.Label className="Email-Prompt">Email address</Form.Label>
@@ -68,20 +58,16 @@ const SignIn = () => {
                       />
                     </Form.Group>
 
-                    {/* Render error message when credentials are incorrect */}
+                    {/* Render error message when sign up is unsuccessful */}
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
 
                     <div className="Custom-Sign-Button-Block">
                       <button className="Custom-Sign-Button">
-                        Sign in
+                        Sign up
                       </button>
                     </div>
                   </Form>
                 </div>
-              </div>
-              <div className="Alt-SignIn">
-                <button className="Signup">Sign up</button>
-                <button className="Guest" onClick={handleGuestSignIn}>Guest login</button>
               </div>
             </div>
           </div>
@@ -91,5 +77,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
-
+export default SignUp;
