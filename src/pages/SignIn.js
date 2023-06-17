@@ -1,37 +1,41 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 import { auth } from './firebase.js';
-import { signInAnonymously, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/SignIn.css'
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showGuestMessage, setShowGuestMessage] = useState(false);
+
+  const navigate = useNavigate(); // Hook from 'react-router-dom'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted with email: ", email, "and password: ", password);
     
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      var user = userCredential.user;
-      console.log("User signed in: ", user);
+      await signInWithEmailAndPassword(auth, email, password);
       setErrorMessage(""); // Clear any previous error messages on successful sign in
+      navigate('/dashboard'); // Redirect to dashboard
     } catch (error) {
       console.error("Error signing in: ", error);
       setErrorMessage("Incorrect email or password. Please try again."); // Set error message on unsuccessful sign in
     }
   };
 
-  const handleGuestSignIn = async () => {
-    try {
-      const userCredential = await signInAnonymously(auth);
-      var user = userCredential.user;
-      console.log("User signed in as guest: ", user);
-    } catch (error) {
-      console.error("Error signing in as guest: ", error);
-    }
+  const handleGuestAccess = () => {
+    setShowGuestMessage(true);
+  };
+
+  const handleOkButton = () => {
+    navigate('/dashboard'); // Redirect to dashboard
+  };
+
+  const handleCancelButton = () => {
+    setShowGuestMessage(false);
   };
 
   return (
@@ -70,6 +74,17 @@ const SignIn = () => {
 
                     {/* Render error message when credentials are incorrect */}
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    {showGuestMessage && (
+                      <div className="info-message-container">
+                        <p className="info-message">
+                          Guest information are not saved for future refrences.
+                          <div className="button-container">
+                            <button onClick={handleOkButton} className="okay-button">Okay</button>
+                            <button onClick={handleCancelButton} className="cancel-button">Cancel</button>
+                          </div>
+                        </p>
+                      </div>
+                    )}
 
                     <div className="Custom-Sign-Button-Block">
                       <button className="Custom-Sign-Button">
@@ -77,11 +92,13 @@ const SignIn = () => {
                       </button>
                     </div>
                   </Form>
+
+                  <div className="Alt-SignIn">
+                    <button className="Guest" onClick={handleGuestAccess}>
+                      Access as Guest
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div className="Alt-SignIn">
-                <button className="Signup">Sign up</button>
-                <button className="Guest" onClick={handleGuestSignIn}>Guest login</button>
               </div>
             </div>
           </div>
@@ -92,4 +109,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-

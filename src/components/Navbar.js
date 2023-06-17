@@ -14,17 +14,17 @@ function MyNavbar() {
 
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="links">
-                    {location.pathname === "/sign-in" ? (
+                    {location.pathname === "/Sign-in" ? (
                         // Different navigation for sign-in page
                         <>
                             <Nav.Link onClick={() => { setOpen(false); navigate('/'); }} id="nav-home">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/Sign-Up" onClick={()=> setOpen(false)} id="nav-sign-up">Sign up</Nav.Link>
+                            <Nav.Link as={Link} to="/Sign-up" onClick={()=> setOpen(false)} id="nav-sign-up">Sign up</Nav.Link>
                         </>
-                    ) : location.pathname === "/Sign-Up" ? (
+                    ) : location.pathname === "/Sign-up" ? (
                             // Different navigation for sign-in page
                             <>
                                 <Nav.Link onClick={() => { setOpen(false); navigate('/'); }} id="nav-home">Home</Nav.Link>
-                                <Nav.Link as={Link} to="/Sign-In" onClick={()=> setOpen(false)} id="nav-sign-in">Sign in</Nav.Link>
+                                <Nav.Link as={Link} to="/Sign-in" onClick={()=> setOpen(false)} id="nav-sign-in">Sign in</Nav.Link>
                             </>
                     ) : (
                         
@@ -34,7 +34,7 @@ function MyNavbar() {
                             <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'About'; }} id="nav-about">About</Nav.Link>
                             <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'Getting-Started'; }} id="nav-getting-started">Getting Started</Nav.Link>
                             <Nav.Link onClick={() => { setOpen(false); navigate('/'); window.location.hash = 'Contact'; }} id="nav-contact-us">Contact Us</Nav.Link>
-                            <Nav.Link as={Link} to="/sign-in" onClick={()=> setOpen(false)} id="nav-sign-in">Sign in</Nav.Link>
+                            <Nav.Link as={Link} to="/Sign-in" onClick={()=> setOpen(false)} id="nav-sign-in">Sign in</Nav.Link>
                         </>
                     )}
                 </Nav>

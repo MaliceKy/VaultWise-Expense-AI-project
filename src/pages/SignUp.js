@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 import { auth } from './firebase.js';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -9,18 +10,18 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const navigate = useNavigate(); // Hook from 'react-router-dom'
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted with email: ", email, "and password: ", password);
-    
+
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      var user = userCredential.user;
-      console.log("User signed up: ", user);
+      await createUserWithEmailAndPassword(auth, email, password);
       setErrorMessage(""); // Clear any previous error messages on successful sign up
+      navigate('/dashboard'); // Redirect to dashboard on successful sign up
     } catch (error) {
       console.error("Error signing up: ", error);
-      setErrorMessage("Could not create account. Please try again."); // Set error message on unsuccessful sign up
+      setErrorMessage(error.message); // Set error message on unsuccessful sign up
     }
   };
 
@@ -28,7 +29,7 @@ const SignUp = () => {
     <div className="SignUpPage">
       <div className="container">
         <div className="row">
-        <div className="col-11 col-sm-10 col-md-8 col-lg-6 mx-auto">
+          <div className="col-11 col-sm-10 col-md-8 col-lg-6 mx-auto">
             <div className="signUpPage-Container">
               <div className="signUpPage-Card">
                 <div className="signUpPageTitleBlock">
@@ -58,7 +59,7 @@ const SignUp = () => {
                       />
                     </Form.Group>
 
-                    {/* Render error message when sign up is unsuccessful */}
+                    {/* Render error message when credentials are incorrect */}
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
 
                     <div className="Custom-Sign-Button-Block">

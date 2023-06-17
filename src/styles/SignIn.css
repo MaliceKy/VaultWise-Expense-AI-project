@@ -111,43 +111,49 @@
 
   .Alt-SignIn{
     display: flex;
-    font-family: 'Raleway';
-    margin-top: 5vh;
     justify-content: center;
   }
 
-  .Signup{
+.Guest{
     padding: 10px 20px; 
     border-radius: 25px;
     color: #fff;
     background: linear-gradient(to right, #7a37ed, #b74ce6);
     font-family: 'Raleway', sans-serif;
-    text-decoration: none;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    border: none; 
-    display: inline-block;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
     cursor: pointer;
-    margin-top: 5%;
-    border: 2.5px solid white;
-    margin-right: 10px;
-  }
-
-
-  .Guest{
-    padding: 10px 20px; 
-    border-radius: 25px;
-    color: #fff;
-    background: linear-gradient(to right, #7a37ed, #b74ce6);
-    font-family: 'Raleway', sans-serif;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    border: none; 
-    display: inline-block;
-    cursor: pointer;
-    margin-top: 5%;
-    margin-left: 10px;
-    border: 2.5px solid white;
+    margin-top: 2vh;
+    border: none;
 }
   
+.info-message-container {
+    margin-top: 5%;
+    background-color: rgba(184, 30, 255, 0.695);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 10px;
+    padding-inline: 5%;
+    padding-top: 5px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2em;
+  }
+  
+  .okay-button, .cancel-button {
+    padding: 3px 10px;
+    margin: 2%;
+    border-radius: 15px;
+    color: #000;
+    background-color: #fff;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
