@@ -38,7 +38,7 @@
     margin-left: 5%;
 }
 
-#nav-sign-in {
+#nav-sign-in, #nav-sign-up {
     margin-right: 5%;
     position: relative;
     display: inline-block;
@@ -61,7 +61,7 @@
     
 }
 
-#nav-sign-in::before, #nav-home::before, #nav-about::before, #nav-getting-started::before, #nav-contact-us::before{
+#nav-sign-in::before, #nav-home::before, #nav-about::before, #nav-getting-started::before, #nav-contact-us::before, #nav-sign-up::before{
     content: "";
     position: absolute;
     width: 80%;
@@ -74,7 +74,7 @@
     transition: transform 0.5s ease-in-out;
 }
 
-#nav-sign-in:hover::before, #nav-home:hover::before, #nav-about:hover::before, #nav-getting-started:hover::before, #nav-contact-us:hover::before{
+#nav-sign-in:hover::before, #nav-home:hover::before, #nav-about:hover::before, #nav-getting-started:hover::before, #nav-contact-us:hover::before, #nav-sign-up:hover::before{
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -123,7 +123,7 @@
 }
 
 @media (max-width: 768px) {
-    #nav-sign-in::before, #nav-home::before, #nav-about::before, #nav-getting-started::before, #nav-contact-us::before{
+    #nav-sign-in::before, #nav-home::before, #nav-about::before, #nav-getting-started::before, #nav-contact-us::before, #nav-sign-up::before{
         content: "";
         position: absolute;
         width: 100%;

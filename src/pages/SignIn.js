@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { auth } from './firebase.js';
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInAnonymously, signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/SignIn.css'
 
 const SignIn = () => {
@@ -21,6 +21,16 @@ const SignIn = () => {
     } catch (error) {
       console.error("Error signing in: ", error);
       setErrorMessage("Incorrect email or password. Please try again."); // Set error message on unsuccessful sign in
+    }
+  };
+
+  const handleGuestSignIn = async () => {
+    try {
+      const userCredential = await signInAnonymously(auth);
+      var user = userCredential.user;
+      console.log("User signed in as guest: ", user);
+    } catch (error) {
+      console.error("Error signing in as guest: ", error);
     }
   };
 
@@ -68,6 +78,10 @@ const SignIn = () => {
                     </div>
                   </Form>
                 </div>
+              </div>
+              <div className="Alt-SignIn">
+                <button className="Signup">Sign up</button>
+                <button className="Guest" onClick={handleGuestSignIn}>Guest login</button>
               </div>
             </div>
           </div>

@@ -17,7 +17,6 @@
     align-items: center;
     justify-content: center;
     height: auto;
-
     padding-bottom: 40px;
     justify-content: center;
     background-color: #ffffff;
@@ -73,28 +72,28 @@
 }
 
 .Custom-Sign-Button{
-    padding: 10px 20px; /* increased padding for better spacing */
-    border-radius: 25px; /* larger radius for more rounded corners */
+    padding: 10px 20px; 
+    border-radius: 25px;
     color: #fff;
     background: linear-gradient(to right, #7a37ed, #b74ce6);
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
-    transition: all 0.3s ease-in-out; /* smooth transition effect */
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* shadow for depth */
-    border: none; /* remove border if any */
-    display: inline-block; /* allows the button to adjust its size based on its content */
-    cursor: pointer; /* changes the mouse cursor when hovering over the button */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border: none; 
+    display: inline-block;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     margin-top: 5%;
 }
 
-.Custom-Sign-Button:hover {
+.Custom-Sign-Button:hover, .Signup:hover, .Guest:hover {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* deeper shadow on hover */
     transform: translateY(-2px); /* slightly raises the button on hover */
 }
 
-.Custom-Sign-Button:active {
+.Custom-Sign-Button:active, .Signup:active, .Guest:active {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* less shadow when button is active/clicked */
     transform: translateY(0px); /* button returns to original position when active/clicked */
 }
@@ -109,4 +108,46 @@
     margin-top: 5%;
     margin-bottom: 0;
   }
+
+  .Alt-SignIn{
+    display: flex;
+    font-family: 'Raleway';
+    margin-top: 5vh;
+    justify-content: center;
+  }
+
+  .Signup{
+    padding: 10px 20px; 
+    border-radius: 25px;
+    color: #fff;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border: none; 
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 5%;
+    border: 2.5px solid white;
+    margin-right: 10px;
+  }
+
+
+  .Guest{
+    padding: 10px 20px; 
+    border-radius: 25px;
+    color: #fff;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border: none; 
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 5%;
+    margin-left: 10px;
+    border: 2.5px solid white;
+}
   
