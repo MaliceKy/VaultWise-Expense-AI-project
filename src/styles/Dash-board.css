@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
+} 
+
+.Dash-Container {
+    background-color: #ebebeb;
+    height: 100vh;
+    padding-top: 1px;
+}
+
+.OverView-Card {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    min-height: 100px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+
+.Welcome{
+    background: linear-gradient(to left, #7a37ed, #b74ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Raleway';
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.Dash-upload-Card{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    min-height: 100px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+}
+
+.Dash-Getting-Started-Card{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    min-height: 100px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+}

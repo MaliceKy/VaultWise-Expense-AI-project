@@ -27,11 +27,13 @@ function MyNavbar() {
         return () => window.removeEventListener('hashchange', handleHashChange);
     }, []);
 
+    const collapseClass = open ? 'collapse show' : 'collapse';
+
     return (
         <Navbar className="navbar" expand="md" fixed="top" expanded={open}>
             <Link className="navbar-brand" to="/">VaultWise</Link>
 
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Collapse id="responsive-navbar-nav" className={collapseClass}>
                 <Nav className="links">
                     {location.pathname === "/Sign-in" ? (
                         <>
@@ -65,6 +67,3 @@ function MyNavbar() {
 }
 
 export default MyNavbar;
-
-
-
