@@ -4,16 +4,21 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Date } from 'core-js';
 import '../styles/Dash-board.css';
 
+// Dashboard Component
 const Dashboard = () => {
+
+  // Initial State
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalOutcome, setTotalOutcome] = useState(0);
   const [transactions, setTransactions] = useState([]);
   const [chartData, setChartData] = useState([]);
 
+  // Function to process uploaded file
   const processFile = (file) => {
     let reader = new FileReader();
     reader.readAsArrayBuffer(file);
 
+    // On file load
     reader.onload = (e) => {
       let data = new Uint8Array(e.target.result);
       let workbook = XLSX.read(data, { type: 'array' });
@@ -25,9 +30,9 @@ const Dashboard = () => {
       let outcome = 0;
       let chartDataTemp = [];
 
-      // Skipping the first row which are headers
-      let transactionData = result.slice(1);
+      let transactionData = result.slice(1); // Skipping the first row which are headers
 
+      // Process transaction data
       transactionData.forEach((transaction) => {
         let amount = parseFloat(transaction['C']);
         if (transaction['D'] === 'Credit') income += amount;
@@ -47,6 +52,7 @@ const Dashboard = () => {
       // Sort chart data by date
       chartDataTemp.sort((a, b) => new Date(a.date) - new Date(b.date));
 
+      // Set State
       setTransactions(transactionData);
       setTotalIncome(income);
       setTotalOutcome(outcome);
@@ -54,12 +60,15 @@ const Dashboard = () => {
     };
   };
 
+  // Render
   return (
     <div className="Dash-Contents">
       <div className="Welcome">Welcome</div>
       <div className="dash-card-deck">
         <div className="container">
           <div className="row">
+
+            {/* File upload */ }
             <div className="col-9 col-md-4 mx-auto mb-4 mb-md-0">
               <div className="dash-card1 m-lg-1">
                 <h2 className="dash-card-title">Upload File</h2>
@@ -77,12 +86,16 @@ const Dashboard = () => {
                 />
               </div>
             </div>
+
+            {/* Total income */ }
             <div className="col-6 col-md-4">
               <div className="dash-card2 m-lg-1">
                 <h2 className="dash-card-title">Total Income</h2>
                 <p className="dash-card-text">${totalIncome.toFixed(2)}</p>
               </div>
             </div>
+
+            {/* Total outcome */ }
             <div className="col-6 col-md-4">
               <div className="dash-card3 m-lg-1">
                 <h2 className="dash-card-title">Total Expense</h2>
@@ -94,7 +107,10 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Transactions and Graph */ }
           <div className="row">
+
+            {/* Transactions */ }
             <div className="col-12 col-lg-6 mt-3">
               <div className="dash-transactions-card4 m-lg-1">
                 <h2 className="dash-card-title">Transactions</h2>
@@ -133,6 +149,7 @@ const Dashboard = () => {
               </div>
             </div>
 
+            {/* Graph */ }
             <div className="col-12 col-lg-6 mt-3">
               <div className="dash-Chart-card5 m-lg-1">
                 <h2 className="dash-card-title">Graph</h2>
@@ -149,7 +166,24 @@ const Dashboard = () => {
                       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                       <XAxis dataKey="date" />
                       <YAxis />
-                      <Tooltip />
+                      <Tooltip 
+                        formatter={(value) => {
+                          // Check if the value is negative
+                          const isNegative = value < 0;
+                          
+                          // Get the absolute value, and format it with commas and 2 decimal places
+                          const formattedValue = Math.abs(value).toLocaleString('en-US', { 
+                            minimumFractionDigits: 2, 
+                            maximumFractionDigits: 2 
+                          });
+                          
+                          // If it was negative, add a '-' sign before the '$'
+                          const sign = isNegative ? "-$" : "$";
+                          
+                          // Return the final formatted value
+                          return [`Balance: ${sign}${formattedValue}`];
+                        }}
+                    />
                     </LineChart>
                 </ResponsiveContainer>
                 )}
@@ -157,9 +191,10 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* AI */ }
           <div className="row">
             <div className="col-12">
-              <div className="dash-Chart-card5 m-lg-1">
+              <div className="dash-AI-card6">
                 <h2 className="dash-card-title">Ai</h2>
                 <div className="Dash-Chart-Title-Con">
                   <p className="ChartTitle">Your Personal Finacial Assistant</p>
@@ -169,21 +204,14 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Breaking into disclaimer */ }
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#7a37ed" fillOpacity="1" d="M0,128L48,154.7C96,181,192,235,288,245.3C384,256,480,224,576,192C672,160,768,128,864,149.3C960,171,1056,245,1152,250.7C1248,256,1344,192,1392,160L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+      {/* Disclaimer */ }
       <div className="dash-footer">
-        <p>Disclaimer: VaultWise is an online platform developed by Kyle Malice, a Computer Science sophomore college student. The purpose of VaultWise is to provide users with a convenient tool to import and analyze their financial data, including calculating income, expenses, graphing bank account balances, and engaging in conversations with a trained AI for guidance on financial goals. However, it is important to note that VaultWise is not intended to be a substitute for professional financial advice.
-
-The information provided on VaultWise should not be considered as personalized financial advice or recommendations. The calculations, analysis, and suggestions generated by VaultWise are based on algorithms and general financial principles, but they may not be suitable for every individual's unique financial situation. Users are advised to exercise caution and use their own discretion before making any financial decisions based on the information provided by VaultWise.
-
-VaultWise does not guarantee the accuracy, completeness, or reliability of the financial calculations and analyses generated by the platform. While efforts are made to ensure the accuracy of the data and calculations, VaultWise cannot be held responsible for any errors, omissions, or inaccuracies in the information provided. Users are responsible for verifying the results and cross-referencing them with their own financial records.
-
-Furthermore, VaultWise does not assume any liability for any financial losses, damages, or adverse outcomes resulting from the use of the platform. Users are solely responsible for their financial decisions and should consult with a qualified financial advisor or professional before making any significant financial commitments or investments.
-
-By accessing and using VaultWise, you acknowledge and agree that Kyle Malice, the developer of VaultWise, and any affiliated parties shall not be held liable for any direct or indirect damages or losses arising from the use of the platform. Users utilize VaultWise at their own risk and are solely responsible for any consequences that may arise.
-
-Please note that the laws and regulations governing financial advice and services may vary by jurisdiction. It is the user's responsibility to comply with the applicable laws and regulations of their respective jurisdictions.
-
-By using VaultWise, you indicate your acceptance and understanding of this disclaimer. If you do not agree with any part of this disclaimer, please refrain from using VaultWise.</p>
+      <h2 className="dash-disclaimer-title">Disclaimer</h2>
+        <p className="Disclaimer">Disclaimer: VaultWise, developed by Kyle Malice, is a platform for importing and analyzing financial data. It is not a substitute for professional financial advice. The information provided should not be considered personalized recommendations. VaultWise does not guarantee accuracy and cannot be held liable for any losses. Users should verify results and consult financial advisors before making decisions. By using VaultWise, you agree to these terms.</p>
       </div>
     </div>
   );
