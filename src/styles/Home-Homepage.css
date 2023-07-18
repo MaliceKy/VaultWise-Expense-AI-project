@@ -3,7 +3,6 @@
     font-family: 'Raleway';
     src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
 } 
-
 /* Home Section */
 .Home{
     background-color: #ffffff;
@@ -11,7 +10,7 @@
 
 /* All Home Content */
 .Home-Content{
-    padding-top: 20vh;
+    padding-top: 20vw;
 }
 
 /* Home welcoming (Title, Description, Sign in button) */
@@ -30,7 +29,6 @@
 
 /* Home Description */
 .Desc{
-    padding: 1vh;
     color: rgb(0, 0, 0);
 }
 

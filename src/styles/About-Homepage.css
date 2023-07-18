@@ -29,10 +29,6 @@
   margin: 0 auto;
 }
 
-.card-deck{
-  padding-bottom: 3vh;
-}
-
 .card1, .card2, .card3, .card4 {
   display: flex;
   flex-direction: column;
