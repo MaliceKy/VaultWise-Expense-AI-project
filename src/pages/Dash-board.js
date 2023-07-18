@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Date } from 'core-js';
@@ -12,6 +12,8 @@ const Dashboard = () => {
   const [totalOutcome, setTotalOutcome] = useState(0);
   const [transactions, setTransactions] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const chatContainerRef = useRef(null);
 
   // Function to process uploaded file
   const processFile = (file) => {
@@ -59,6 +61,26 @@ const Dashboard = () => {
       setChartData(chartDataTemp);
     };
   };
+
+// Function to handle new user messages
+const handleNewUserMessage = (event) => {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    if (event.target.value.trim() !== '') {
+      // If Enter was pressed (without Shift), send the message
+      event.preventDefault();
+      setMessages([...messages, { sender: 'user', text: event.target.value }]);
+      event.target.value = '';
+      // TODO: Send message to GPT-3 and get response
+    }
+  }
+};
+
+  // Scroll to bottom of chat container when a new message is added
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   // Render
   return (
@@ -196,8 +218,22 @@ const Dashboard = () => {
             <div className="col-12">
               <div className="dash-AI-card6">
                 <h2 className="dash-card-title">Ai</h2>
-                <div className="Dash-Chart-Title-Con">
+                <div className="Dash-AI-Title-Con">
                   <p className="ChartTitle">Your Personal Finacial Assistant</p>
+                </div>
+                <div className="chat-container" ref={chatContainerRef}>
+                {messages.map((message, index) => (
+                  <div key={index} className={`chat-message ${message.sender}`}>
+                    <p dangerouslySetInnerHTML={{ __html: message.text.replace(/\n/g, '<br>') }}></p>
+                  </div>
+                ))}
+                </div>
+                <div className='textarea-container'>
+                  <textarea
+                    className="chat-input"
+                    placeholder="Type your message..."
+                    onKeyDown={handleNewUserMessage}
+                  />
                 </div>
               </div>
             </div>
