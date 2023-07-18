@@ -177,7 +177,7 @@
 }
   
 .dash-upload {
-    padding: 5px 10px; /* increased padding for better spacing */
+    /*padding: 5px 10px; */ /* increased padding for better spacing */
     border-radius: 25px; /* larger radius for more rounded corners */
     color: #fff;
     background: linear-gradient(to right, #7a37ed, #b74ce6);
@@ -222,10 +222,10 @@
     font-family: 'Raleway';
     text-align: center;
     margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
     font-size: .85rem;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 10%;
     padding-right: 10%;
 }

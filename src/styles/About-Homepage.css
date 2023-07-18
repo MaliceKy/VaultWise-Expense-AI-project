@@ -4,6 +4,13 @@
   src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
 } 
 
+.waveabout{
+  margin-bottom: -5px;
+}
+
+.wavecard{
+  margin-top: -5px;
+}
 
 .About{
   background-color: #7a37ed;
@@ -17,14 +24,14 @@
   color: rgb(255, 255, 255);
   font-weight: 650;
   text-align: center;
-  padding-bottom: 2vh;
+
 }
 
 .About-Desc{
   color: white;
-  padding-inline: 9vh;
+  padding-inline: 5vw;
   text-align: center;
-  padding-bottom: 2vh;
+
   max-width: 1200px;
   margin: 0 auto;
 }

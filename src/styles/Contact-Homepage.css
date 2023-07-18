@@ -3,6 +3,10 @@
     src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
   } 
 
+  .wavecontact{
+    margin-bottom: -5px;
+  }
+
 .Contact{
     background-color: #7a37ed;
     padding-bottom: 5%;
@@ -13,15 +17,14 @@
     font-family: 'Raleway';
     font-weight: 650;
     text-align: center;
-    padding-bottom: 2vh;
 }
 
 .Contact-Desc{
     color: white;
     font-family: 'Raleway';
-    padding-inline: 9vh;
+    padding-inline: 9vw;
+    padding-bottom: 2vw;
     text-align: center;
-    padding-bottom: 2vh;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -41,10 +44,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Raleway';
-    padding-inline: 1vh;
-    text-align: center;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+    text-align: center;;
+    padding-inline: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
     font-weight: 700;
     font-size: 1.2rem;
 }

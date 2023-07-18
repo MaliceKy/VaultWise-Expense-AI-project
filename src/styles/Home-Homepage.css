@@ -3,7 +3,8 @@
     font-family: 'Raleway';
     src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
 } 
-/* Home Section */
+  
+/* HoFe Section */
 .Home{
     background-color: #ffffff;
 }
@@ -34,7 +35,7 @@
 
 /* Home Sign in Button */
 .Sign-in {
-    padding: 10px 20px; /* increased padding for better spacing */
+    padding: 10px 20px; /* increased padding for better spacing  */
     border-radius: 25px; /* larger radius for more rounded corners */
     color: #fff;
     background: linear-gradient(to right, #7a37ed, #b74ce6);
