@@ -20,7 +20,7 @@
 }
 
 .Contact-Desc{
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: 'Raleway';
     padding-inline: 9vw;
     padding-bottom: 2vw;
@@ -35,15 +35,11 @@
     align-items: center;
     border-radius: 35px;
     padding: 3%;
-    background-color: #f5f5f5;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .Contact-Desc-Bold{
-    background: linear-gradient(to right, #7a37ed, #b74ce6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-family: 'Raleway';
+    color: white;
     text-align: center;;
     padding-inline: 1vw;
     padding-top: 1vw;
@@ -53,7 +49,7 @@
 }
 
 .Media-Content{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: 'Raleway';
     text-align: center;
 }
