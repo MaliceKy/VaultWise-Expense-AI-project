@@ -15,6 +15,8 @@ const Dashboard = () => {
   const [chartData, setChartData] = useState([]);
   const [messages, setMessages] = useState([]);
   const chatContainerRef = useRef(null);
+  const chatInputRef = useRef(null);
+
 
   // Function to process uploaded file
   const processFile = (file) => {
@@ -77,8 +79,13 @@ const Dashboard = () => {
   };
 
   const handleSendClick = () => {
-    // TODO: Send message to GPT-3 and get response
+    const text = chatInputRef.current.value;
+    if (text.trim() !== '') {
+      setMessages([...messages, { sender: 'user', text: text }]);
+      chatInputRef.current.value = '';
+    }
   };
+  
 
   // Scroll to bottom of chat container when a new message is added
   useEffect(() => {
@@ -235,6 +242,7 @@ const Dashboard = () => {
                 </div>
                 <div className='textarea-container'>
                   <textarea
+                  ref={chatInputRef}
                     className="chat-input"
                     placeholder="Type your message..."
                     onKeyDown={handleNewUserMessage}
