@@ -3,6 +3,10 @@
     src: url('../assets/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 
+.disclaimerwave{
+    margin-bottom: -5px;
+}
+
 .Welcome{
     margin-top: 80px;
     margin-left: 5%;
