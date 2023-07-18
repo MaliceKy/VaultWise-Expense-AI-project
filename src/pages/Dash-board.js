@@ -3,6 +3,7 @@ import * as XLSX from 'xlsx';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Date } from 'core-js';
 import '../styles/Dash-board.css';
+import { ReactComponent as PlaneIcon } from '../assets/images/paper-plane-svgrepo-com.svg';
 
 // Dashboard Component
 const Dashboard = () => {
@@ -62,18 +63,22 @@ const Dashboard = () => {
     };
   };
 
-// Function to handle new user messages
-const handleNewUserMessage = (event) => {
-  if (event.key === 'Enter' && !event.shiftKey) {
-    if (event.target.value.trim() !== '') {
-      // If Enter was pressed (without Shift), send the message
-      event.preventDefault();
-      setMessages([...messages, { sender: 'user', text: event.target.value }]);
-      event.target.value = '';
-      // TODO: Send message to GPT-3 and get response
+  // Function to handle new user messages
+  const handleNewUserMessage = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      if (event.target.value.trim() !== '') {
+        // If Enter was pressed (without Shift), send the message
+        event.preventDefault();
+        setMessages([...messages, { sender: 'user', text: event.target.value }]);
+        event.target.value = '';
+        // TODO: Send message to GPT-3 and get response
+      }
     }
-  }
-};
+  };
+
+  const handleSendClick = () => {
+    // TODO: Send message to GPT-3 and get response
+  };
 
   // Scroll to bottom of chat container when a new message is added
   useEffect(() => {
@@ -234,6 +239,7 @@ const handleNewUserMessage = (event) => {
                     placeholder="Type your message..."
                     onKeyDown={handleNewUserMessage}
                   />
+                  <button className="send-button" onClick={handleSendClick}><PlaneIcon className="sendIcon"/></button>
                 </div>
               </div>
             </div>
