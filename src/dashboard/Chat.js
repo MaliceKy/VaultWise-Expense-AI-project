@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import {MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+  TypingIndicator
+} from '@chatscope/chat-ui-kit-react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
@@ -8,7 +15,7 @@ const Chat = () => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: 'Hello, I am Your personal AI assistant. How may I help you?',
+      message: 'Hello, I am ChatGPT',
       sender: 'ChatGPT'
     }
   ]);
@@ -40,9 +47,14 @@ const Chat = () => {
       return { role: role, content: messageObject.message };
     });
 
+    const systemMessage = {
+      role: 'system',
+      content: 'Explain like a financial consultant and be very clear about any steps or advice'
+    };
+
     const apiRequestBody = {
       model: 'gpt-3.5-turbo',
-      messages: [...apiMessages]
+      messages: [systemMessage, ...apiMessages]
     };
 
     await fetch('https://api.openai.com/v1/chat/completions', {
