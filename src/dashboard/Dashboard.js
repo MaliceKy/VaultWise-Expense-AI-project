@@ -19,9 +19,6 @@ const Dashboard = () => {
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalOutcome, setTotalOutcome] = useState(0);
   const [transactions, setTransactions] = useState([]);
-
-  const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-  
   const [chartData, setChartData] = useState([]);
   const [messages, setMessages] = useState([
     {
