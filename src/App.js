@@ -1,7 +1,7 @@
 import React from 'react';
 import './components/scrollbarStyles.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage.js';
+import HomePage from './Homepage/HomePage.js';
 import Navbar from './components/Navbar.js';
 import SignIn from './login-logout/SignIn.js';
 import SignUp from './login-logout/SignUp.js';

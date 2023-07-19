@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  TypingIndicator
-} from '@chatscope/chat-ui-kit-react';
+import {MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
