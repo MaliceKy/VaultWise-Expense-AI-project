@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import '../styles/Dash-board.css';
 
-import { Date } from 'core-js';
-
 // Import the new components
 import UploadFile from './UploadFile.js';
 import IncomeOutcome from './IncomeOutcome.js';

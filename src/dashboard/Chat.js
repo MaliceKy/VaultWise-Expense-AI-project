@@ -8,7 +8,7 @@ const Chat = () => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: 'Hello, I am ChatGPT',
+      message: 'Hello, I am Your personal AI assistant. How may I help you?',
       sender: 'ChatGPT'
     }
   ]);
