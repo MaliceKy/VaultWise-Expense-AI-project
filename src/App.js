@@ -3,9 +3,9 @@ import './components/scrollbarStyles.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage.js';
 import Navbar from './components/Navbar.js';
-import SignIn from './pages/SignIn.js';
-import SignUp from './pages/SignUp.js';
-import Dashboard from './pages/Dash-board.js';
+import SignIn from './login-logout/SignIn.js';
+import SignUp from './login-logout/SignUp.js';
+import Dashboard from './dashboard/Dashboard.js';
 
 
 // import other components...
