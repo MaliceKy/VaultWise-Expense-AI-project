@@ -11,7 +11,11 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
-const Chat = () => {
+function formatTransaction(transaction) {
+  return `On ${transaction.date}, there was a ${transaction.type} transaction of ${transaction.amount} with the description "${transaction.description}".`;
+}
+
+const Chat = ({ transactions, finalBalance }) => { // receive finalBalance as a prop
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -33,10 +37,10 @@ const Chat = () => {
 
     setTyping(true);
 
-    await processMessageToChatGPT(newMessages);
+    await processMessageToChatGPT(newMessages, transactions, finalBalance); // pass finalBalance to the function
   };
 
-  async function processMessageToChatGPT(chatMessages) {
+  async function processMessageToChatGPT(chatMessages, transactions, finalBalance) { // receive finalBalance as an argument
     let apiMessages = chatMessages.map((messageObject) => {
       let role = '';
       if (messageObject.sender === 'ChatGPT') {
@@ -47,9 +51,11 @@ const Chat = () => {
       return { role: role, content: messageObject.message };
     });
 
+    const transactionMessages = transactions.map(formatTransaction).join(' ');
+
     const systemMessage = {
       role: 'system',
-      content: 'Explain like a financial consultant and be very clear about any steps or advice'
+      content: `Explain like a financial consultant and be very clear about any steps or advice. The final account balance is ${finalBalance}. Transaction history: ${transactionMessages}`
     };
 
     const apiRequestBody = {
@@ -69,8 +75,6 @@ const Chat = () => {
         return data.json();
       })
       .then((data) => {
-        console.log(data);
-        console.log(data.choices[0].message.content);
         setMessages([
           ...chatMessages,
           {

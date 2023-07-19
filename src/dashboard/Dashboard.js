@@ -1,8 +1,7 @@
+// Dashboard.js
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import '../styles/Dash-board.css';
-
-// Import the new components
 import UploadFile from './UploadFile.js';
 import IncomeOutcome from './IncomeOutcome.js';
 import Transactions from './Transactions.js';
@@ -10,10 +9,7 @@ import BalanceChart from './BalanceChart.js';
 import Chat from './Chat.js';
 import Disclaimer from './Disclaimer.js';
 
-// Dashboard Component
 const Dashboard = () => {
-
-  // Initial State
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalOutcome, setTotalOutcome] = useState(0);
   const [transactions, setTransactions] = useState([]);
@@ -24,13 +20,12 @@ const Dashboard = () => {
       sender: "ChatGPT"
     }
   ]);
+  const [finalBalance, setFinalBalance] = useState(0);
 
-  // Function to process uploaded file
   const processFile = (file) => {
     let reader = new FileReader();
     reader.readAsArrayBuffer(file);
 
-    // On file load
     reader.onload = (e) => {
       let data = new Uint8Array(e.target.result);
       let workbook = XLSX.read(data, { type: 'array' });
@@ -42,63 +37,55 @@ const Dashboard = () => {
       let outcome = 0;
       let chartDataTemp = [];
 
-      let transactionData = result.slice(1); // Skipping the first row which are headers
+      let transactionData = result.slice(1);
 
-      // Process transaction data
       transactionData.forEach((transaction) => {
         let amount = parseFloat(transaction['C']);
+        let description = transaction['E'];
         if (transaction['D'] === 'Credit') income += amount;
         if (transaction['D'] === 'Debit') outcome += amount;
 
-        // Convert Excel serial number to date
         let date = new Date((transaction['B'] - (25567 + 1))*86400*1000);
         transaction['B'] = date.toLocaleDateString();
 
-        // Prepare chart data
         chartDataTemp.push({
           date: transaction['B'],
-          balance: parseFloat(transaction['F'])
+          balance: parseFloat(transaction['F']),
+          description: description
         });
+
+        setTransactions(transactionData.map(transaction => ({
+          date: transaction['B'],
+          amount: parseFloat(transaction['C']),
+          type: transaction['D'],
+          description: transaction['E'],
+          balance: parseFloat(transaction['F'])
+        })));
       });
 
-      // Sort chart data by date
       chartDataTemp.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-      // Set State
-      setTransactions(transactionData);
       setTotalIncome(income);
       setTotalOutcome(outcome);
       setChartData(chartDataTemp);
+      setFinalBalance(chartDataTemp[chartDataTemp.length - 1].balance);
     };
   };
 
-  // Render
   return (
     <div className="Dash-Contents">
       <div className="Welcome">Welcome</div>
       <div className="dash-card-deck">
         <div className="container">
           <div className="row">
-
-            {/* File upload */ }
             <UploadFile processFile={processFile} />
-
-            {/* Total income and outcome */ }
             <IncomeOutcome totalIncome={totalIncome} totalOutcome={totalOutcome} />
-
-            {/* Transactions */ }
             <Transactions transactions={transactions} />
-
-            {/* Graph */ }
             <BalanceChart chartData={chartData} />
-
-            {/* AI */ }
-            <Chat messages={messages} setMessages={setMessages} />
-
+            <Chat messages={messages} setMessages={setMessages} transactions={transactions} finalBalance={finalBalance} />
           </div>
         </div>
-          {/* Disclaimer */ }
-          <Disclaimer />
+        <Disclaimer />
       </div>
     </div>
   );

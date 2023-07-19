@@ -1,3 +1,4 @@
+// Transactions.js
 import React from 'react';
 
 const Transactions = ({ transactions }) => {
@@ -20,15 +21,15 @@ const Transactions = ({ transactions }) => {
                 <tbody>
                   {transactions.map((transaction, index) => (
                     <tr key={index}>
-                      <td className="TableContent">{transaction['B']}</td>
+                      <td className="TableContent">{transaction.date}</td>
                       <td className="TableContent">
-                        {(transaction['C'] < 0 ? '-$' : transaction['C'] > 0 ? '+$' : '$')}
-                        {Math.abs(transaction['C']).toFixed(2)}
+                        {(transaction.amount < 0 ? '-$' : transaction.amount > 0 ? '+$' : '$')}
+                        {Math.abs(transaction.amount).toFixed(2)}
                       </td>
-                      <td className="TableContentTransactions">{transaction['E']}</td>
+                      <td className="TableContentTransactions">{transaction.description}</td>
                       <td className="TableContent">
-                        {transaction['F'] < 0 ? '-$' : '$'}
-                        {Math.abs(transaction['F']).toFixed(2)}
+                        {transaction.balance < 0 ? '-$' : '$'}
+                        {Math.abs(transaction.balance).toFixed(2)}
                       </td>
                     </tr>
                   ))}
