@@ -1,0 +1,92 @@
+/* chat.css */
+.chat-container {
+    background-color: #edebeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    max-height: 500px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+  
+.messages {
+    margin-bottom: 20px;
+    overflow: auto;
+    border-radius: 15px;
+    max-height: 500px;
+}
+  
+.message {
+    margin-bottom: 10px;
+}
+  
+.message.ChatGPT {
+    text-align: left;
+}
+  
+.message.ChatGPT .bubble {
+    background-color: #7a37ed;
+    color: white;
+    border-radius: 12px 12px 12px 3px;
+}
+  
+.message.user {
+    text-align: right;
+}
+  
+.message.user .bubble {
+    background-color: #b84ce6a0;
+    color: rgb(255, 255, 255);
+    border-radius: 12px 12px 3px 12px;
+}
+  
+.bubble {
+    display: inline-block;
+    padding: 10px 15px;
+    max-width: 80%;
+}
+
+.bubble p {
+    margin: 0;
+}
+  
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    border: none;
+}
+  
+.input-container textarea {
+    flex: 1;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    border: none;
+    resize: none;
+    height: 50px;
+    padding-right: 50px;
+}
+  
+.send-button {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7a37ed;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+    right: 0;
+}
+
+.sendIcon{
+    fill: white;
+}
+

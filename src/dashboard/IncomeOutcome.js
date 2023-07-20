@@ -1,3 +1,4 @@
+// IncomeOutcome.js
 import React from 'react';
 
 const IncomeOutcome = ({ totalIncome, totalOutcome }) => {
@@ -24,3 +25,4 @@ const IncomeOutcome = ({ totalIncome, totalOutcome }) => {
 };
 
 export default IncomeOutcome;
+

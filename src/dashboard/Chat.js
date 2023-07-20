@@ -1,13 +1,8 @@
+// Chat.js
 import React, { useState } from 'react';
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  TypingIndicator
-} from '@chatscope/chat-ui-kit-react';
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import './chat.css';
+import { ReactComponent as SendIcon } from '../assets/images/paper-plane-svgrepo-com.svg';
+import ReactMarkdown from 'react-markdown'; // import the library
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
@@ -15,32 +10,43 @@ function formatTransaction(transaction) {
   return `On ${transaction.date}, there was a ${transaction.type} transaction of ${transaction.amount} with the description "${transaction.description}".`;
 }
 
-const Chat = ({ transactions, finalBalance }) => { // receive finalBalance as a prop
+const Chat = ({ transactions, finalBalance }) => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: 'Hello, I am ChatGPT',
+      message: 'Hello, I will be your assistant. Please upload a CSV file with your banking statements and ask me anything!',
       sender: 'ChatGPT'
     }
   ]);
 
-  const handleSend = async (message) => {
+  const [messageInput, setMessageInput] = useState('');
+
+  const handleSend = async () => {
+    if(messageInput.trim() === '') return; // prevent sending empty messages
+
     const newMessage = {
-      message: message,
-      sender: 'user',
-      direction: 'outgoing'
+      message: messageInput,
+      sender: 'user'
     };
 
     const newMessages = [...messages, newMessage];
 
     setMessages(newMessages);
+    setMessageInput('');
 
     setTyping(true);
 
-    await processMessageToChatGPT(newMessages, transactions, finalBalance); // pass finalBalance to the function
+    await processMessageToChatGPT(newMessages, transactions, finalBalance);
   };
 
-  async function processMessageToChatGPT(chatMessages, transactions, finalBalance) { // receive finalBalance as an argument
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      handleSend();
+    }
+  };
+
+  async function processMessageToChatGPT(chatMessages, transactions, finalBalance) {
     let apiMessages = chatMessages.map((messageObject) => {
       let role = '';
       if (messageObject.sender === 'ChatGPT') {
@@ -93,16 +99,25 @@ const Chat = ({ transactions, finalBalance }) => { // receive finalBalance as a 
         <div className="Dash-AI-Title-Con">
           <p className="ChartTitle">Your Personal Financial Assistant</p>
         </div>
-        <MainContainer>
-          <ChatContainer>
-            <MessageList scrollBehavior="smooth" typingIndicator={typing ? <TypingIndicator content="ChatGPT is typing" /> : null}>
-              {messages.map((message, i) => {
-                return <Message key={i} model={message} />;
-              })}
-            </MessageList>
-            <MessageInput placeholder="Send a message" onSend={handleSend} />
-          </ChatContainer>
-        </MainContainer>
+        <div className="chat-container">
+          <div className="messages">
+            {messages.map((message, i) => (
+              <div key={i} className={`message ${message.sender}`}>
+                <div className="bubble"><ReactMarkdown>{message.message}</ReactMarkdown></div> {/* use ReactMarkdown here */}
+              </div>
+            ))}
+            {typing && <div>ChatGPT is typing...</div>}
+          </div>
+          <div className="input-container">
+            <textarea
+              value={messageInput}
+              onChange={(e) => setMessageInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type a message..."
+            />
+            <button className="send-button" onClick={handleSend}><SendIcon className="sendIcon"/></button>
+          </div>
+        </div>
       </div>
     </div>
   );
