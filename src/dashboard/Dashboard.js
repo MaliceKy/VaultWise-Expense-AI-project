@@ -1,7 +1,8 @@
 // Dashboard.js
 import React, { useState } from 'react';
+import './styles/Dashboard.css';
 import * as XLSX from 'xlsx';
-import '../styles/Dash-board.css';
+
 import UploadFile from './UploadFile.js';
 import IncomeOutcome from './IncomeOutcome.js';
 import Transactions from './Transactions.js';

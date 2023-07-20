@@ -1,5 +1,6 @@
 // Transactions.js
 import React from 'react';
+import './styles/Transactions.css';
 
 const Transactions = ({ transactions }) => {
   return (

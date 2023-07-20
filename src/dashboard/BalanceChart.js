@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/BalanceChart.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const BalanceChart = ({ chartData }) => {
@@ -39,3 +40,4 @@ const BalanceChart = ({ chartData }) => {
 };
 
 export default BalanceChart;
+

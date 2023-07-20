@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Monserrat';
+    src: url('./Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('./Raleway-VariableFont_wght.ttf') format('truetype');
+} 

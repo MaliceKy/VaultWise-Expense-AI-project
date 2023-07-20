@@ -1,0 +1,29 @@
+/* Disclaimer.css */
+.disclaimerwave{
+    margin-bottom: -5px;
+}
+
+.dash-footer{
+    background-color: #7a37ed;
+    padding-bottom: 1%;
+}
+
+.dash-disclaimer-title{
+    font-family: 'Raleway';
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.Disclaimer{
+    font-family: 'Raleway';
+    text-align: center;
+    margin: 0;
+    font-size: .85rem;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}

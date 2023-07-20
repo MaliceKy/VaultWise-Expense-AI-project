@@ -1,5 +1,6 @@
 // IncomeOutcome.js
 import React from 'react';
+import './styles/IncomeOutcome.css';
 
 const IncomeOutcome = ({ totalIncome, totalOutcome }) => {
   return (

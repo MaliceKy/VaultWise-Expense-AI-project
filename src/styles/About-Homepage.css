@@ -1,8 +1,4 @@
 /* About-Homepage.css */
-@font-face {
-  font-family: 'Raleway';
-  src: url('../assets/Raleway-VariableFont_wght.ttf') format('truetype');
-} 
 
 .waveabout{
   margin-bottom: -5px;

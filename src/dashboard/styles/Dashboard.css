@@ -1,0 +1,15 @@
+/* Dashboard.css */
+.Welcome{
+    margin-top: 80px;
+    margin-left: 5%;
+    font-family: 'Raleway';
+    font-size: 1.7rem;
+    font-weight: bold;
+    background-color: #7a37ed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dash-card-deck{
+    margin-top: 20px;
+}

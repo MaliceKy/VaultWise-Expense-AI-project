@@ -1,6 +1,6 @@
 // Chat.js
 import React, { useState } from 'react';
-import './chat.css';
+import './styles/Chat.css';
 import { ReactComponent as SendIcon } from '../assets/images/paper-plane-svgrepo-com.svg';
 import ReactMarkdown from 'react-markdown'; // import the library
 
@@ -124,3 +124,4 @@ const Chat = ({ transactions, finalBalance }) => {
 };
 
 export default Chat;
+
