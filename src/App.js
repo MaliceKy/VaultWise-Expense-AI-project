@@ -1,5 +1,5 @@
 import React from 'react';
-import './assets/fonts/fonts.css';
+import './assets/fonts/AllFonts.css';
 import './components/styles/scrollbarStyles.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './Homepage/HomePage.js';

@@ -1,10 +1,10 @@
-.SignUpPage{
+.SignInPage{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Roboto', sans-serif; 
-    background-image: url('../assets/images/wave-haikei-SignUp.svg');
+    background-image: url('./wave-haikei.svg');
     font-family: 'Raleway';
 
     background-size: cover; 
@@ -12,7 +12,7 @@
     background-position: center; 
 }
 
-.signUpPage-Card{
+.signInPage-Card{
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.signUpPageTitleBlock{
+.signInPageTitleBlock{
     background-color: #f9f9f9;
     width: 100%;
     height: 20%;
@@ -33,7 +33,7 @@
     align-content: center;
 }
 
-.signUpPage-Title{
+.signInPage-Title{
     font-family: 'Raleway';
     text-align: center;
     padding-top: 20px;
@@ -60,7 +60,7 @@
     font-weight: 600;
 }
 
-.SignUpForm{
+.SignInForm{
     padding-top: 5%;
     padding-inline: 10%;
 
@@ -107,4 +107,53 @@
     padding: 2%;
     margin-top: 5%;
     margin-bottom: 0;
+  }
+
+  .Alt-SignIn{
+    display: flex;
+    justify-content: center;
+  }
+
+.Guest{
+    padding: 10px 20px; 
+    border-radius: 25px;
+    color: #fff;
+    background: linear-gradient(to right, #7a37ed, #b74ce6);
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    margin-top: 2vh;
+    border: none;
+}
+  
+.info-message-container {
+    margin-top: 5%;
+    background-color: rgba(184, 30, 255, 0.695);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 10px;
+    padding-inline: 5%;
+    padding-top: 5px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2em;
+  }
+  
+  .okay-button, .cancel-button {
+    padding: 3px 10px;
+    margin: 2%;
+    border-radius: 15px;
+    color: #000;
+    background-color: #fff;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   }
