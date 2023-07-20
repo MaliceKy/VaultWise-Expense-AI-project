@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'; // import the library
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 function formatTransaction(transaction) {
-  return `On ${transaction.date}, there was a ${transaction.type} transaction of ${transaction.amount} with the description "${transaction.description}".`;
+  return `On ${transaction.date}, there was a ${transaction.type} transaction of ${transaction.amount} with the description "${transaction.description}". The account balance after this transaction was ${transaction.balance}.`;
 }
 
 const Chat = ({ transactions, finalBalance }) => {
@@ -124,4 +124,3 @@ const Chat = ({ transactions, finalBalance }) => {
 };
 
 export default Chat;
-
