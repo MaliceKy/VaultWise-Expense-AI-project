@@ -19,8 +19,6 @@ This project is built using the following technologies:
 
 Users can access the VaultWise platform via [this link](https://vaultwise.kylemalice.info/). After signing up or logging in as a guest, users can upload a CSV file containing their bank statements. VaultWise then analyzes this data, providing a summary of income, expenses, and transactions. Users can view their transaction history and a dynamic graph that displays the trend of their account balance. Additionally, users can access a chat interface powered by GPT 3.5 Turbo, which provides insights and guidance based on their statement data.
 
-## How it Works
-
 The sequence diagram below provides a visual representation of the interaction between the user, VaultWise, the bank statement, and the AI component:
 
 ![Sequence Diagram](https://showme.redstarplugin.com/d/dx1PktKV)
