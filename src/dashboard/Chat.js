@@ -1,7 +1,7 @@
 // Chat.js
 import React, { useState } from 'react';
 import './styles/Chat.css';
-import { ReactComponent as SendIcon } from '../assets/images/paper-plane-svgrepo-com.svg';
+import { ReactComponent as PaperPlane } from '../assets/images/paper-plane-svgrepo-com.svg';
 import ReactMarkdown from 'react-markdown'; // import the library
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
@@ -115,7 +115,7 @@ const Chat = ({ transactions, finalBalance }) => {
               onKeyDown={handleKeyDown}
               placeholder="Type a message..."
             />
-            <button className="send-button" onClick={handleSend}><SendIcon className="sendIcon"/></button>
+            <button className="send-button " onClick={handleSend}><PaperPlane className="PaperPlaneSVG"/></button>
           </div>
         </div>
       </div>
